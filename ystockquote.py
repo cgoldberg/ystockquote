@@ -8,18 +8,8 @@
 #  License as published by the Free Software Foundation; either
 #  version 2.1 of the License, or (at your option) any later version.
 
+
 import urllib
-
-"""
-This is the "ystockquote" module.
-
-This module provides a Python API for retrieving stock data from Yahoo Finance.
-
-sample usage:
->>> import ystockquote
->>> print ystockquote.get_price('GOOG')
-529.46
-"""
 
 
 def _request(symbol, stat):
@@ -27,10 +17,11 @@ def _request(symbol, stat):
     r = urllib.urlopen(url)
     return r.read()
 
+
 def get_all(symbol):
     """
     Get all available quote data for the given ticker symbol.
-    
+
     Returns a dictionary.
     """
     values = _request(symbol, 'l1c1va2xj1b4j4dyekjm3m4rr5p5p6s7').split(',')
@@ -58,71 +49,91 @@ def get_all(symbol):
     )
 
 
-def get_price(symbol): 
+def get_price(symbol):
     return _request(symbol, 'l1')
+
 
 def get_change(symbol):
     return _request(symbol, 'c1')
 
-def get_volume(symbol): 
+
+def get_volume(symbol):
     return _request(symbol, 'v')
 
-def get_avg_daily_volume(symbol): 
+
+def get_avg_daily_volume(symbol):
     return _request(symbol, 'a2')
 
-def get_stock_exchange(symbol): 
+
+def get_stock_exchange(symbol):
     return _request(symbol, 'x')
+
 
 def get_market_cap(symbol):
     return _request(symbol, 'j1')
 
+
 def get_book_value(symbol):
     return _request(symbol, 'b4')
 
-def get_ebitda(symbol): 
+
+def get_ebitda(symbol):
     return _request(symbol, 'j4')
+
 
 def get_dividend_per_share(symbol):
     return _request(symbol, 'd')
 
-def get_dividend_yield(symbol): 
+
+def get_dividend_yield(symbol):
     return _request(symbol, 'y')
 
-def get_earnings_per_share(symbol): 
+
+def get_earnings_per_share(symbol):
     return _request(symbol, 'e')
 
-def get_52_week_high(symbol): 
+
+def get_52_week_high(symbol):
     return _request(symbol, 'k')
 
-def get_52_week_low(symbol): 
+
+def get_52_week_low(symbol):
     return _request(symbol, 'j')
 
-def get_50day_moving_avg(symbol): 
+
+def get_50day_moving_avg(symbol):
     return _request(symbol, 'm3')
 
-def get_200day_moving_avg(symbol): 
+
+def get_200day_moving_avg(symbol):
     return _request(symbol, 'm4')
 
-def get_price_earnings_ratio(symbol): 
+
+def get_price_earnings_ratio(symbol):
     return _request(symbol, 'r')
 
-def get_price_earnings_growth_ratio(symbol): 
+
+def get_price_earnings_growth_ratio(symbol):
     return _request(symbol, 'r5')
 
-def get_price_sales_ratio(symbol): 
+
+def get_price_sales_ratio(symbol):
     return _request(symbol, 'p5')
 
-def get_price_book_ratio(symbol): 
+
+def get_price_book_ratio(symbol):
     return _request(symbol, 'p6')
 
-def get_short_ratio(symbol): 
+
+def get_short_ratio(symbol):
     return _request(symbol, 's7')
-    
+
+
 def get_historical_prices(symbol, start_date, end_date):
     """
     Get historical prices for the given ticker symbol.
     Date format is 'YYYYMMDD'
-    
+
     Returns a nested list (first item is the list of column headers).
     """
     params = urllib.urlencode({
