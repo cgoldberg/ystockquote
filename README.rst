@@ -12,18 +12,17 @@ ystockquote
 Requirements
 ~~~~~~~~~~~~
 
- * Python 2.7/3.2+
+  * Python 2.7/3.2+
 
 ~~~~~~~
 Install
 ~~~~~~~
 
-
-`ytockquote` can be installed from `PyPI` with :code:`pip`::
+:code:`ytockquote` can be installed from :code:`PyPI` with :code:`pip`::
 
     pip install ystockquote
 
-You can also clone the development repo and install (requires `git` and runs unit-tests)::
+You can also clone the development repo (requires :code:`git`) to install and run unit-tests::
 
     $ git clone git://github.com/cgoldberg/ystockquote.git
     $ cd ystockquote
@@ -41,7 +40,6 @@ Example Usage
     '810.31'
 
 .. code:: python
-
 
     >>> import ystockquote
     >>> import pprint
@@ -79,3 +77,5 @@ Example Usage
      'two_hundred_day_moving_avg': '733.759',
      'volume': '3772'}
     >>> 
+
+----
