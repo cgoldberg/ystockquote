@@ -9,24 +9,28 @@
 #  modify it under the terms of the GNU Lesser General Public
 #  License as published by the Free Software Foundation; either
 #  version 2.1 of the License, or (at your option) any later version.
-
-
-try:
-    from urllib.request import Request, urlopen
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib2 import Request, urlopen
-    from urllib import urlencode
+#
+#  Requires: Python 2.7/3.2+
 
 
 __version__ = '0.2.0'
+
+
+try:
+    # py3
+    from urllib.request import Request, urlopen
+    from urllib.parse import urlencode
+except ImportError:
+    # py2
+    from urllib2 import Request, urlopen
+    from urllib import urlencode
 
 
 def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     req = Request(url)
     resp = urlopen(req)
-    return str(resp.read().decode('utf-8').strip())
+    return str(resp.read().decode('utf-8').strip().strip('"'))
 
 
 def get_all(symbol):
@@ -163,4 +167,4 @@ def get_historical_prices(symbol, start_date, end_date):
     resp = urlopen(req)
     content = str(resp.read().decode('utf-8').strip())
     days = content.splitlines()
-    return [day.split(',') for day in days]
+    return [[d.strip('"') for d in day.split(',')] for day in days]
