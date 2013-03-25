@@ -14,17 +14,33 @@ Requirements
 
  * Python 2.7/3.2+
 
+~~~~~~~
+Install
+~~~~~~~
+
+
+`ytockquote` can be installed from `PyPI` with `pip`::
+
+    pip install sst
+
+You can also clone the development repo and install (requires `git`)::
+
+    $ git clone git://github.com/cgoldberg/ystockquote.git
+    $ cd ystockquote
+    $ python setup.py install
+    $ python -m unittest discover
+
 ~~~~~~~~~~~~~
 Example Usage
 ~~~~~~~~~~~~~
 
-::
+:::python
 
     >>> import ystockquote
     >>> ystockquote.get_price('GOOG')
     '810.31'
 
-::
+:::python
 
     >>> import ystockquote
     >>> import pprint
@@ -36,7 +52,7 @@ Example Usage
      ['2013-01-03', '724.93', '731.93', '720.72', '723.67', '2318200', '723.67']]
     >>>
 
-::
+:::python
 
     >>> import ystockquote
     >>> import pprint
