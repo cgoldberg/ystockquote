@@ -11,7 +11,12 @@
 #  version 2.1 of the License, or (at your option) any later version.
 
 
-import urllib
+try:
+    from urllib.request import Request, urlopen
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib2 import Request, urlopen
+    from urllib import urlencode
 
 
 __version__ = '0.2.0'
@@ -19,8 +24,9 @@ __version__ = '0.2.0'
 
 def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
-    r = urllib.urlopen(url)
-    return r.read().strip()
+    req = Request(url)
+    resp = urlopen(req)
+    return str(resp.read().decode('utf-8').strip())
 
 
 def get_all(symbol):
@@ -141,7 +147,7 @@ def get_historical_prices(symbol, start_date, end_date):
 
     Returns a nested list (first item is list of column headers).
     """
-    params = urllib.urlencode({
+    params = urlencode({
         's': symbol,
         'a': int(start_date[4:6]) - 1,
         'b': int(start_date[6:8]),
@@ -153,7 +159,8 @@ def get_historical_prices(symbol, start_date, end_date):
         'ignore': '.csv',
     })
     url = 'http://ichart.yahoo.com/table.csv?%s' % params
-    r = urllib.urlopen(url)
-    content = r.read().strip()
+    req = Request(url)
+    resp = urlopen(req)
+    content = str(resp.read().decode('utf-8').strip())
     days = content.splitlines()
     return [day.split(',') for day in days]
