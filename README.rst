@@ -34,13 +34,14 @@ You can also clone the development repo and install (requires `git`)::
 Example Usage
 ~~~~~~~~~~~~~
 
-:::python
+.. code:: python
 
     >>> import ystockquote
     >>> ystockquote.get_price('GOOG')
     '810.31'
 
-:::python
+.. code:: python
+
 
     >>> import ystockquote
     >>> import pprint
@@ -52,7 +53,7 @@ Example Usage
      ['2013-01-03', '724.93', '731.93', '720.72', '723.67', '2318200', '723.67']]
     >>>
 
-:::python
+.. code:: python
 
     >>> import ystockquote
     >>> import pprint
