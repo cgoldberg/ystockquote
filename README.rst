@@ -19,7 +19,7 @@ Install
 ~~~~~~~
 
 
-`ytockquote` can be installed from `PyPI` with `pip`::
+`ytockquote` can be installed from `PyPI` with :code:`pip`::
 
     pip install ystockquote
 
