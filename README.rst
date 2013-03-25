@@ -1,7 +1,7 @@
 ystockquote
 ===========
 
-**Python module - retrieve stock quote data from Yahoo Finance.**
+**Python module - retrieve stock quote data from Yahoo Finance**
 
  * created by: Corey Goldberg (2007,2008,2013)
  * license: GNU LGPLv2+
@@ -18,9 +18,9 @@ Requirements
 Install
 ~~~~~~~
 
-:code:`ytockquote` can be installed from :code:`PyPI` with :code:`pip`::
+:code:`ytockquote` can be installed from `PyPI` with :code:`pip`::
 
-    pip install ystockquote
+    $ pip install ystockquote
 
 You can also clone the development repo (requires :code:`git`) to install and run unit-tests::
 
