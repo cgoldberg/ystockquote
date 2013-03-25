@@ -30,7 +30,7 @@ def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     req = Request(url)
     resp = urlopen(req)
-    return str(resp.read().decode('utf-8').strip().strip('"'))
+    return str(resp.read().decode('utf-8').strip())
 
 
 def get_all(symbol):
@@ -167,4 +167,4 @@ def get_historical_prices(symbol, start_date, end_date):
     resp = urlopen(req)
     content = str(resp.read().decode('utf-8').strip())
     days = content.splitlines()
-    return [[d.strip('"') for d in day.split(',')] for day in days]
+    return [day.split(',') for day in days]
