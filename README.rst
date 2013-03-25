@@ -3,7 +3,7 @@ ystockquote
 
 **Python module - retrieve stock quote data from Yahoo Finance.**
 
- * created by: **Corey Goldberg** (2007,2008,2013)
+ * created by: Corey Goldberg (2007,2008,2013)
  * license: GNU LGPL
 
 ----
