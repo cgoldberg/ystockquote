@@ -29,7 +29,7 @@ class TestYStockQuote(unittest.TestCase):
 
     def test_get_historical_prices(self):
         prices = ystockquote.get_historical_prices(self.symbol, '20130102', '20130115')
-        headers = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Clo']
+        headers = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close']
         self.assertEqual(len(prices), 11)
         self.assertEqual(prices[0], headers)
         self.assertEqual(prices[1][0], '2013-01-15')

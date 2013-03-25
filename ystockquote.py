@@ -153,4 +153,4 @@ def get_historical_prices(symbol, start_date, end_date):
     r = urllib.urlopen(url)
     content = r.read().strip()
     days = content.splitlines()
-    return [day[:-2].split(',') for day in days]
+    return [day.split(',') for day in days]
