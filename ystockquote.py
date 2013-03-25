@@ -1,4 +1,6 @@
 #
+#  ystockquote : Python module - retrieve stock quote data from Yahoo Finance
+#
 #  Copyright (c) 2007,2008,2013 Corey Goldberg (cgoldberg@gmail.com)
 #
 #  license: GNU LGPL
@@ -15,7 +17,7 @@ import urllib
 def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     r = urllib.urlopen(url)
-    return r.read()
+    return r.read().strip()
 
 
 def get_all(symbol):
@@ -134,7 +136,7 @@ def get_historical_prices(symbol, start_date, end_date):
     Get historical prices for the given ticker symbol.
     Date format is 'YYYYMMDD'
 
-    Returns a nested list (first item is the list of column headers).
+    Returns a nested list (first item is list of column headers).
     """
     params = urllib.urlencode({
         's': symbol,
@@ -149,6 +151,6 @@ def get_historical_prices(symbol, start_date, end_date):
     })
     url = 'http://ichart.yahoo.com/table.csv?%s' % params
     r = urllib.urlopen(url)
-    content = r.read()
+    content = r.read().strip()
     days = content.splitlines()
     return [day[:-2].split(',') for day in days]
