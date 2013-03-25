@@ -1,0 +1,5 @@
+include MANIFEST.in
+include README.rst
+include setup.py
+include ystockquote.py
+include test_ystockquote.py
