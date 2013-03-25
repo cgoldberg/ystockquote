@@ -21,9 +21,9 @@ Install
 
 `ytockquote` can be installed from `PyPI` with `pip`::
 
-    pip install sst
+    pip install ystockquote
 
-You can also clone the development repo and install (requires `git`)::
+You can also clone the development repo and install (requires `git` and runs unit-tests)::
 
     $ git clone git://github.com/cgoldberg/ystockquote.git
     $ cd ystockquote
