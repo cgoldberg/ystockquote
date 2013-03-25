@@ -14,6 +14,9 @@
 import urllib
 
 
+__version__ = '0.2.0'
+
+
 def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     r = urllib.urlopen(url)
