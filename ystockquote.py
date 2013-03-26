@@ -13,7 +13,7 @@
 #  Requires: Python 2.7/3.2+
 
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 
 try:

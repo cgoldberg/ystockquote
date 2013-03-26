@@ -3,8 +3,10 @@ ystockquote
 
 **Python module - retrieve stock quote data from Yahoo Finance**
 
- * created by: Corey Goldberg (2007,2008,2013)
- * license: GNU LGPLv2+
+ * Created by: Corey Goldberg (2007,2008,2013)
+ * License: GNU LGPLv2+
+ * Dev Home: `https://github.com/cgoldberg/ystockquote <https://github.com/cgoldberg/ystockquote>`_
+ * PyPI: `https://pypi.python.org/pypi/ystockquote <https://pypi.python.org/pypi/ystockquote>`_
 
 ----
 
@@ -18,11 +20,11 @@ Requirements
 Install
 ~~~~~~~
 
-:code:`ytockquote` can be installed from `PyPI` with :code:`pip`::
+`ytockquote` can be installed from `PyPI <https://pypi.python.org/pypi/ystockquote>`_ with `pip <http://www.pip-installer.org/>`_::
 
     $ pip install ystockquote
 
-You can also clone the development repo (requires :code:`git`) to install and run unit-tests::
+You can also clone the development repo (requires `git <http://git-scm.com/>`_) to install and run unit-tests::
 
     $ git clone git://github.com/cgoldberg/ystockquote.git
     $ cd ystockquote
@@ -77,4 +79,3 @@ Example Usage
      'two_hundred_day_moving_avg': '733.759',
      'volume': '3772'}
     >>> 
-
