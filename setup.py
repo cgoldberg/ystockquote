@@ -34,7 +34,7 @@ setup(
     author_email='cgoldberg _at_ gmail.com',
     description='retrieve stock quote data from Yahoo Finance',
     long_description=LONG_DESCRIPTION,
-    url='http://cgoldberg.github.com/ystockquote/',
+    url='https://github.com/cgoldberg/ystockquote',
     download_url='http://pypi.python.org/pypi/ystockquote',
     keywords='stocks stockmarket yahoo finance'.split(),
     license='Apache v2.0',
