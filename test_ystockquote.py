@@ -14,7 +14,19 @@
 
 import unittest
 
+import pep8
+
 import ystockquote
+
+
+class Pep8ConformanceTestCase(unittest.TestCase):
+    """Test that all code conforms to PEP8."""
+
+    def test_pep8_conformance(self):
+        self.pep8style = pep8.StyleGuide(show_source=True)
+        files = ('ystockquote.py', 'test_ystockquote.py')
+        self.pep8style.check_files(files)
+        self.assertEqual(self.pep8style.options.report.total_errors, 0)
 
 
 class YStockQuoteTestCase(unittest.TestCase):
@@ -30,8 +42,12 @@ class YStockQuoteTestCase(unittest.TestCase):
         self.assertGreater(float(p), 0.0)
 
     def test_get_historical_prices(self):
-        prices = ystockquote.get_historical_prices(self.symbol, '20130102', '20130115')
-        headers = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close']
+        prices = ystockquote.get_historical_prices(
+            self.symbol, '20130102', '20130115'
+        )
+        headers = [
+            'Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close'
+        ]
         self.assertEqual(len(prices), 11)
         self.assertEqual(prices[0], headers)
         self.assertEqual(prices[1][0], '2013-01-15')
