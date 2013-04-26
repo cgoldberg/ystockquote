@@ -17,7 +17,7 @@ import unittest
 import ystockquote
 
 
-class TestYStockQuote(unittest.TestCase):
+class YStockQuoteTestCase(unittest.TestCase):
 
     def setUp(self):
         self.symbol = 'GOOG'
