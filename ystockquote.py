@@ -147,17 +147,17 @@ def get_short_ratio(symbol):
 def get_historical_prices(symbol, start_date, end_date):
     """
     Get historical prices for the given ticker symbol.
-    Date format is 'YYYYMMDD'
+    Date format is 'YYYY-MM-DD'
 
     Returns a nested list (first item is list of column headers).
     """
     params = urlencode({
         's': symbol,
-        'a': int(start_date[4:6]) - 1,
-        'b': int(start_date[6:8]),
+        'a': int(start_date[5:7]) - 1,
+        'b': int(start_date[8:10]),
         'c': int(start_date[0:4]),
-        'd': int(end_date[4:6]) - 1,
-        'e': int(end_date[6:8]),
+        'd': int(end_date[5:7]) - 1,
+        'e': int(end_date[8:10]),
         'f': int(end_date[0:4]),
         'g': 'd',
         'ignore': '.csv',

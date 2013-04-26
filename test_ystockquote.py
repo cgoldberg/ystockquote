@@ -43,7 +43,7 @@ class YStockQuoteTestCase(unittest.TestCase):
 
     def test_get_historical_prices(self):
         prices = ystockquote.get_historical_prices(
-            self.symbol, '20130102', '20130115'
+            self.symbol, '2013-01-02', '2013-01-15'
         )
         headers = [
             'Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close'
