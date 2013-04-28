@@ -45,7 +45,7 @@ Example Usage
 
     >>> import ystockquote
     >>> import pprint
-    >>> pprint.pprint(ystockquote.get_historical_prices('GOOG', '20130103', '20130108'))
+    >>> pprint.pprint(ystockquote.get_historical_prices('GOOG', '2013-01-03', '2013-01-08'))
     [['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close'],
      ['2013-01-08', '735.54', '736.30', '724.43', '733.30', '1676100', '733.30'],
      ['2013-01-07', '735.45', '739.38', '730.58', '734.75', '1655700', '734.75'],
