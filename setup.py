@@ -37,11 +37,11 @@ setup(
     url='https://github.com/cgoldberg/ystockquote',
     download_url='http://pypi.python.org/pypi/ystockquote',
     keywords='stocks stockmarket yahoo finance'.split(),
-    license='Apache v2.0',
+    license='GNU LGPLv2+',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)',
+        'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
         'Operating System :: OS Independent',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Office/Business :: Financial :: Investment',
