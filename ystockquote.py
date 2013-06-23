@@ -15,7 +15,6 @@
 
 __version__ = '0.2.4'
 
-
 try:
     # py3
     from urllib.request import Request, urlopen
@@ -144,7 +143,7 @@ def get_short_ratio(symbol):
     return _request(symbol, 's7')
 
 
-def get_historical_prices(symbol, start_date, end_date):
+def get_historical_prices(symbol, start_date, end_date,list_dicts=False):
     """
     Get historical prices for the given ticker symbol.
     Date format is 'YYYY-MM-DD'
@@ -167,4 +166,22 @@ def get_historical_prices(symbol, start_date, end_date):
     resp = urlopen(req)
     content = str(resp.read().decode('utf-8').strip())
     days = content.splitlines()
-    return [day.split(',') for day in days]
+   
+    if(list_dicts):
+        hist_data = list() 
+        keys = days[0].split(',')
+        for day in days[1:]:
+            day_data = day.split(',')
+            day_dict = {day_data[0]:
+                            {keys[1]:day_data[1],
+                             keys[2]:day_data[2],
+                             keys[3]:day_data[3],
+                             keys[4]:day_data[4],
+                             keys[5]:day_data[5],
+                             keys[6]:day_data[6]
+                            }             
+                        }
+            hist_data.append(day_dict)
+        return hist_data
+    else:
+        return [day.split(',') for day in days]
