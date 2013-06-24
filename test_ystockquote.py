@@ -45,6 +45,7 @@ class YStockQuoteTestCase(unittest.TestCase):
         prices = ystockquote.get_historical_prices(
             self.symbol, '2013-01-02', '2013-01-15'
         )
+        self.assertIsInstance(prices, list)
         headers = [
             'Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close'
         ]
@@ -55,15 +56,26 @@ class YStockQuoteTestCase(unittest.TestCase):
         self.assertGreater(float(prices[1][6]), 0.0)
         self.assertGreater(float(prices[-1][6]), 0.0)
 
-    def test_get_historical_prices_as_dict(self):
-        dicts = ystockquote.get_historical_prices(
-            self.symbol, '2013-01-02', '2013-01-15', list_dicts=True
+    def test_get_historical_prices_dict(self):
+        prices_dict = ystockquote.get_historical_prices_dict(
+            self.symbol, '2013-01-02', '2013-01-15'
         )
-        self.assertEqual(len(dicts), 10)
-        self.assertEqual(dicts[0].keys()[0], '2013-01-15')
-        self.assertEqual(dicts[-1].keys()[0], '2013-01-02')
-        self.assertGreater(float(dicts[0]['2013-01-15']['High']), 0.0)
-        self.assertGreater(float(dicts[-1]['2013-01-02']['High']), 0.0)
+        self.assertIsInstance(prices_dict, dict)
+        self.assertEqual(len(prices_dict), 10)
+        self.assertEqual(sorted(prices_dict.keys())[0], '2013-01-02')
+        self.assertEqual(sorted(prices_dict.keys())[-1], '2013-01-15')
+        self.assertGreater(float(prices_dict['2013-01-02']['Open']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-02']['High']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-02']['Low']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-02']['Close']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-02']['Volume']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-02']['Adj Close']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-15']['Open']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-15']['High']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-15']['Low']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-15']['Close']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-15']['Volume']), 0.0)
+        self.assertGreater(float(prices_dict['2013-01-15']['Adj Close']), 0.0)
 
     def test_get_price(self):
         value = ystockquote.get_price(self.symbol)

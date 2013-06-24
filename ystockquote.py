@@ -143,14 +143,7 @@ def get_short_ratio(symbol):
     return _request(symbol, 's7')
 
 
-def get_historical_prices(symbol, start_date, end_date, list_dicts=False):
-    """
-    Get historical prices for the given ticker symbol.
-    Date format is 'YYYY-MM-DD'
-
-    Returns a nested list (first item is list of column headers).
-    Returns a list of dictionaries if invoked with `list_dicts=True`
-    """
+def _get_historical_prices(symbol, start_date, end_date):
     params = urlencode({
         's': symbol,
         'a': int(start_date[5:7]) - 1,
@@ -166,22 +159,40 @@ def get_historical_prices(symbol, start_date, end_date, list_dicts=False):
     req = Request(url)
     resp = urlopen(req)
     content = str(resp.read().decode('utf-8').strip())
-    days = content.splitlines()
+    daily_data = content.splitlines()
+    return daily_data
 
-    if list_dicts:
-        hist_dicts = list()
-        keys = days[0].split(',')
-        for day in days[1:]:
-            day_data = day.split(',')
-            day_dict = {day_data[0]: {
-                        keys[1]: day_data[1],
-                        keys[2]: day_data[2],
-                        keys[3]: day_data[3],
-                        keys[4]: day_data[4],
-                        keys[5]: day_data[5],
-                        keys[6]: day_data[6]}}
-            hist_dicts.append(day_dict)
-        return hist_dicts
-    else:
-        hist_list = [day.split(',') for day in days]
-        return hist_list
+
+def get_historical_prices(symbol, start_date, end_date):
+    """
+    Get historical prices for the given ticker symbol.
+    Date format is 'YYYY-MM-DD'
+
+    Returns a nested list (first item is list of column headers).
+    """
+    daily_data = _get_historical_prices(symbol, start_date, end_date)
+    return [day_data.split(',') for day_data in daily_data]
+
+
+def get_historical_prices_dict(symbol, start_date, end_date):
+    """
+    Get historical prices for the given ticker symbol.
+    Date format is 'YYYY-MM-DD'
+
+    Returns a nested dictionary (dict of dicts).
+    keys='YYYY-MM-DD'
+    """
+    daily_data = _get_historical_prices(symbol, start_date, end_date)
+    hist_dict = dict()
+    keys = daily_data[0].split(',')
+    for day in daily_data[1:]:
+        day_data = day.split(',')
+        date = day_data[0]
+        hist_dict[date] = \
+            {keys[1]: day_data[1],
+             keys[2]: day_data[2],
+             keys[3]: day_data[3],
+             keys[4]: day_data[4],
+             keys[5]: day_data[5],
+             keys[6]: day_data[6]}
+    return hist_dict
