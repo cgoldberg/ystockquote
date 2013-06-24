@@ -55,6 +55,16 @@ class YStockQuoteTestCase(unittest.TestCase):
         self.assertGreater(float(prices[1][6]), 0.0)
         self.assertGreater(float(prices[-1][6]), 0.0)
 
+    def test_get_historical_prices_as_dict(self):
+        dicts = ystockquote.get_historical_prices(
+            self.symbol, '2013-01-02', '2013-01-15', list_dicts=True
+        )
+        self.assertEqual(len(dicts), 10)
+        self.assertEqual(dicts[0].keys()[0], '2013-01-15')
+        self.assertEqual(dicts[-1].keys()[0], '2013-01-02')
+        self.assertGreater(float(dicts[0]['2013-01-15']['High']), 0.0)
+        self.assertGreater(float(dicts[-1]['2013-01-02']['High']), 0.0)
+
     def test_get_price(self):
         value = ystockquote.get_price(self.symbol)
         self.assertIsInstance(value, str)
