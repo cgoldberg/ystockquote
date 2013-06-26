@@ -143,7 +143,14 @@ def get_short_ratio(symbol):
     return _request(symbol, 's7')
 
 
-def _get_historical_prices(symbol, start_date, end_date):
+def get_historical_prices(symbol, start_date, end_date):
+    """
+    Get historical prices for the given ticker symbol.
+    Date format is 'YYYY-MM-DD'
+
+    Returns a nested dictionary (dict of dicts).
+    outer dict keys are dates ('YYYY-MM-DD')
+    """
     params = urlencode({
         's': symbol,
         'a': int(start_date[5:7]) - 1,
@@ -160,29 +167,6 @@ def _get_historical_prices(symbol, start_date, end_date):
     resp = urlopen(req)
     content = str(resp.read().decode('utf-8').strip())
     daily_data = content.splitlines()
-    return daily_data
-
-
-def get_historical_prices(symbol, start_date, end_date):
-    """
-    Get historical prices for the given ticker symbol.
-    Date format is 'YYYY-MM-DD'
-
-    Returns a nested list (first item is list of column headers).
-    """
-    daily_data = _get_historical_prices(symbol, start_date, end_date)
-    return [day_data.split(',') for day_data in daily_data]
-
-
-def get_historical_prices_dict(symbol, start_date, end_date):
-    """
-    Get historical prices for the given ticker symbol.
-    Date format is 'YYYY-MM-DD'
-
-    Returns a nested dictionary (dict of dicts).
-    keys='YYYY-MM-DD'
-    """
-    daily_data = _get_historical_prices(symbol, start_date, end_date)
     hist_dict = dict()
     keys = daily_data[0].split(',')
     for day in daily_data[1:]:
