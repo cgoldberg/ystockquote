@@ -45,18 +45,6 @@ Example Usage
 
     >>> import ystockquote
     >>> import pprint
-    >>> pprint.pprint(ystockquote.get_historical_prices('GOOG', '2013-01-03', '2013-01-08'))
-    [['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close'],
-     ['2013-01-08', '735.54', '736.30', '724.43', '733.30', '1676100', '733.30'],
-     ['2013-01-07', '735.45', '739.38', '730.58', '734.75', '1655700', '734.75'],
-     ['2013-01-04', '729.34', '741.47', '727.68', '737.97', '2763500', '737.97'],
-     ['2013-01-03', '724.93', '731.93', '720.72', '723.67', '2318200', '723.67']]
-    >>>
-
-.. code:: python
-
-    >>> import ystockquote
-    >>> import pprint
     >>> pprint.pprint(ystockquote.get_all('GOOG'))
     {'avg_daily_volume': '2311630',
      'book_value': '217.332',
@@ -78,4 +66,37 @@ Example Usage
      'stock_exchange': '"NasdaqNM"',
      'two_hundred_day_moving_avg': '733.759',
      'volume': '3772'}
-    >>> 
+    >>>
+
+.. code:: python
+
+    >>> import ystockquote
+    >>> import pprint
+    >>> pprint.pprint(ystockquote.get_historical_prices('GOOG', '2013-01-03', '2013-01-08'))
+    {'2013-01-03': {'Adj Close': '723.67',
+                    'Close': '723.67',
+                    'High': '731.93',
+                    'Low': '720.72',
+                    'Open': '724.93',
+                    'Volume': '2318200'},
+     '2013-01-04': {'Adj Close': '737.97',
+                    'Close': '737.97',
+                    'High': '741.47',
+                    'Low': '727.68',
+                    'Open': '729.34',
+                    'Volume': '2763500'},
+     '2013-01-07': {'Adj Close': '734.75',
+                    'Close': '734.75',
+                    'High': '739.38',
+                    'Low': '730.58',
+                    'Open': '735.45',
+                    'Volume': '1655700'},
+     '2013-01-08': {'Adj Close': '733.30',
+                    'Close': '733.30',
+                    'High': '736.30',
+                    'Low': '724.43',
+                    'Open': '735.54',
+                    'Volume': '1676100'}}
+    >>>
+
+ 
