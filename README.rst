@@ -39,34 +39,9 @@ Example Usage
 
     >>> import ystockquote
     >>> ystockquote.get_price('GOOG')
-    '810.31'
+    '869.33'
+    >>> 
 
-.. code:: python
-
-    >>> import ystockquote
-    >>> import pprint
-    >>> pprint.pprint(ystockquote.get_all('GOOG'))
-    {'avg_daily_volume': '2311630',
-     'book_value': '217.332',
-     'change': '0.00',
-     'dividend_per_share': '0.00',
-     'dividend_yield': 'N/A',
-     'earnings_per_share': '32.214',
-     'ebitda': '16.278B',
-     'fifty_day_moving_avg': '802.107',
-     'fifty_two_week_high': '844.00',
-     'fifty_two_week_low': '556.52',
-     'market_cap': '267.1B',
-     'price': '810.31',
-     'price_book_ratio': '3.73',
-     'price_earnings_growth_ratio': '1.26',
-     'price_earnings_ratio': '25.15',
-     'price_sales_ratio': '5.32',
-     'short_ratio': '1.90',
-     'stock_exchange': '"NasdaqNM"',
-     'two_hundred_day_moving_avg': '733.759',
-     'volume': '3772'}
-    >>>
 
 .. code:: python
 
@@ -97,6 +72,35 @@ Example Usage
                     'Low': '724.43',
                     'Open': '735.54',
                     'Volume': '1676100'}}
-    >>>
+    >>> 
+
+
+.. code:: python
+
+    >>> import ystockquote
+    >>> import pprint
+    >>> pprint.pprint(ystockquote.get_all('GOOG'))
+    {'avg_daily_volume': '2178170',
+     'book_value': '236.698',
+     'change': '0.00',
+     'dividend_per_share': '0.00',
+     'dividend_yield': 'N/A',
+     'earnings_per_share': '34.565',
+     'ebitda': '17.004B',
+     'fifty_day_moving_avg': '894.304',
+     'fifty_two_week_high': '928.00',
+     'fifty_two_week_low': '636.00',
+     'market_cap': '289.5B',
+     'price': '869.33',
+     'price_book_ratio': '3.67',
+     'price_earnings_growth_ratio': '1.37',
+     'price_earnings_ratio': '25.15',
+     'price_sales_ratio': '5.19',
+     'short_ratio': '1.70',
+     'stock_exchange': '"NasdaqNM"',
+     'two_hundred_day_moving_avg': '848.489',
+     'volume': '3800'}
+    >>> 
+
 
  
