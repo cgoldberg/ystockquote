@@ -36,14 +36,20 @@ setup(
     long_description=LONG_DESCRIPTION,
     url='https://github.com/cgoldberg/ystockquote',
     download_url='http://pypi.python.org/pypi/ystockquote',
-    keywords='stocks stockmarket yahoo finance'.split(),
+    keywords='stocks stockmarket market finance yahoo quotes'.split(),
     license='GNU LGPLv2+',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
+        'Intended Audience :: Financial and Insurance Industry',
         'License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)',
-        'Operating System :: OS Independent',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Office/Business :: Financial :: Investment',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
     ]
 )
