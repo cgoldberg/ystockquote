@@ -46,8 +46,8 @@ Example Usage
 .. code:: python
 
     >>> import ystockquote
-    >>> import pprint
-    >>> pprint.pprint(ystockquote.get_historical_prices('GOOG', '2013-01-03', '2013-01-08'))
+    >>> from pprint import pprint
+    >>> pprint(ystockquote.get_historical_prices('GOOG', '2013-01-03', '2013-01-08'))
     {'2013-01-03': {'Adj Close': '723.67',
                     'Close': '723.67',
                     'High': '731.93',
@@ -72,14 +72,14 @@ Example Usage
                     'Low': '724.43',
                     'Open': '735.54',
                     'Volume': '1676100'}}
-    >>> 
+    >>>
 
 
 .. code:: python
 
     >>> import ystockquote
-    >>> import pprint
-    >>> pprint.pprint(ystockquote.get_all('GOOG'))
+    >>> from pprint import pprint
+    >>> pprint(ystockquote.get_all('GOOG'))
     {'avg_daily_volume': '2178170',
      'book_value': '236.698',
      'change': '0.00',
