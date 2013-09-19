@@ -24,11 +24,15 @@ Install
 
     $ pip install ystockquote
 
-You can also clone the development repo (requires `git <http://git-scm.com/>`_) to install and run unit-tests::
+You can also clone the development repo (requires `git <http://git-scm.com/>`_) to install::
 
     $ git clone git://github.com/cgoldberg/ystockquote.git
     $ cd ystockquote
     $ python setup.py install
+    $ python -m unittest discover
+
+To run unit tests::
+
     $ python -m unittest discover
 
 ~~~~~~~~~~~~~
@@ -38,10 +42,11 @@ Example Usage
 .. code:: python
 
     >>> import ystockquote
-    >>> ystockquote.get_price('GOOG')
-    '869.33'
-    >>> 
-
+    >>> print(ystockquote.get_price_book('GOOG'))
+    '51.18'
+    >>> print(ystockquote.get_bid_realtime('GOOG'))
+    '904.77'
+    >>>
 
 .. code:: python
 
@@ -74,33 +79,3 @@ Example Usage
                     'Volume': '1676100'}}
     >>>
 
-
-.. code:: python
-
-    >>> import ystockquote
-    >>> from pprint import pprint
-    >>> pprint(ystockquote.get_all('GOOG'))
-    {'avg_daily_volume': '2178170',
-     'book_value': '236.698',
-     'change': '0.00',
-     'dividend_per_share': '0.00',
-     'dividend_yield': 'N/A',
-     'earnings_per_share': '34.565',
-     'ebitda': '17.004B',
-     'fifty_day_moving_avg': '894.304',
-     'fifty_two_week_high': '928.00',
-     'fifty_two_week_low': '636.00',
-     'market_cap': '289.5B',
-     'price': '869.33',
-     'price_book_ratio': '3.67',
-     'price_earnings_growth_ratio': '1.37',
-     'price_earnings_ratio': '25.15',
-     'price_sales_ratio': '5.19',
-     'short_ratio': '1.70',
-     'stock_exchange': '"NasdaqNM"',
-     'two_hundred_day_moving_avg': '848.489',
-     'volume': '3800'}
-    >>> 
-
-
- 
