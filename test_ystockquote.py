@@ -37,9 +37,8 @@ class YStockQuoteTestCase(unittest.TestCase):
     def test_get_all(self):
         all_info = ystockquote.get_all(self.symbol)
         self.assertIsInstance(all_info, dict)
-        p = all_info['price']
+        p = all_info['dividend_yield']
         self.assertIsInstance(p, str)
-        self.assertGreater(float(p), 0.0)
 
     def test_get_historical_prices(self):
         prices_dict = ystockquote.get_historical_prices(
@@ -60,86 +59,6 @@ class YStockQuoteTestCase(unittest.TestCase):
         self.assertGreater(float(prices_dict['2013-01-15']['Close']), 0.0)
         self.assertGreater(float(prices_dict['2013-01-15']['Volume']), 0.0)
         self.assertGreater(float(prices_dict['2013-01-15']['Adj Close']), 0.0)
-
-    def test_get_price(self):
-        value = ystockquote.get_price(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_change(self):
-        value = ystockquote.get_change(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_volume(self):
-        value = ystockquote.get_volume(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_avg_daily_volume(self):
-        value = ystockquote.get_avg_daily_volume(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_stock_exchange(self):
-        value = ystockquote.get_stock_exchange(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_market_cap(self):
-        value = ystockquote.get_market_cap(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_book_value(self):
-        value = ystockquote.get_book_value(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_ebitda(self):
-        value = ystockquote.get_ebitda(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_dividend_per_share(self):
-        value = ystockquote.get_dividend_per_share(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_dividend_yield(self):
-        value = ystockquote.get_dividend_yield(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_earnings_per_share(self):
-        value = ystockquote.get_earnings_per_share(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_52_week_high(self):
-        value = ystockquote.get_52_week_high(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_52_week_low(self):
-        value = ystockquote.get_52_week_low(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_50day_moving_avg(self):
-        value = ystockquote.get_50day_moving_avg(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_200day_moving_avg(self):
-        value = ystockquote.get_200day_moving_avg(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_price_earnings_ratio(self):
-        value = ystockquote.get_price_earnings_ratio(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_price_earnings_growth_ratio(self):
-        value = ystockquote.get_price_earnings_growth_ratio(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_price_sales_ratio(self):
-        value = ystockquote.get_price_sales_ratio(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_price_book_ratio(self):
-        value = ystockquote.get_price_book_ratio(self.symbol)
-        self.assertIsInstance(value, str)
-
-    def test_get_short_ratio(self):
-        value = ystockquote.get_short_ratio(self.symbol)
-        self.assertIsInstance(value, str)
 
 
 if __name__ == '__main__':

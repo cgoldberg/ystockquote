@@ -38,12 +38,11 @@ def get_all(symbol):
 
     Returns a dictionary.
     """
-    values = _request(
-        symbol,
-        'ydb2r1b3qpoc1d1cd2c6t1k2p2c8m5c3m6gm7hm8k1m3lm4l1t8w1g1w4g3p',
-        '1g4mg5m2g6kvjj1j5j3k4f6j6nk5n4ws1xj2va5b6k3t7a2t615l2el3e7v1',
+    ids = \
+        'ydb2r1b3qpoc1d1cd2c6t1k2p2c8m5c3m6gm7hm8k1m3lm4l1t8w1g1w4g3p' \
+        '1g4mg5m2g6kvjj1j5j3k4f6j6nk5n4ws1xj2va5b6k3t7a2t615l2el3e7v1' \
         'e8v7e9s6b4j4p5p6rr2r5r6r7s7'
-        ).split(',')
+    values = _request(symbol, ids).split(',')
     return dict(
         dividend_yield=values[0],
         dividend_per_share=values[1],
@@ -126,7 +125,6 @@ def get_all(symbol):
         price_eps_estimate_current_year=values[78],
         price_eps_estimate_next_year=values[79],
         short_ratio=values[80],
-
     )
 
 
