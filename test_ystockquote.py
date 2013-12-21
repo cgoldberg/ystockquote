@@ -9,18 +9,19 @@
 #  License as published by the Free Software Foundation; either
 #  version 2.1 of the License, or (at your option) any later version.
 #
-#  Requires: Python 2.7/3.2+
+#  Requires: Python 2.7/3.3+
 
 
 import unittest
 
 import pep8
+from testscenarios import generate_scenarios, TestWithScenarios
 
 import ystockquote
 
 
 class Pep8ConformanceTestCase(unittest.TestCase):
-    """Test that all code conforms to PEP8."""
+    """Test that all code conforms to PEP8!"""
 
     def test_pep8_conformance(self):
         self.pep8style = pep8.StyleGuide(show_source=True)
@@ -29,36 +30,38 @@ class Pep8ConformanceTestCase(unittest.TestCase):
         self.assertEqual(self.pep8style.options.report.total_errors, 0)
 
 
-class YStockQuoteTestCase(unittest.TestCase):
-
-    def setUp(self):
-        self.symbol = 'GOOG'
+class YStockQuoteTestCase(TestWithScenarios):
 
     def test_get_all(self):
-        all_info = ystockquote.get_all(self.symbol)
+        symbol = 'GOOG'
+        all_info = ystockquote.get_all(symbol)
         self.assertIsInstance(all_info, dict)
-        p = all_info['dividend_yield']
-        self.assertIsInstance(p, str)
+        pc = all_info['previous_close']
+        self.assertNotEqual(pc, 'N/A')
+        self.assertGreater(float(pc), 0)
 
     def test_get_historical_prices(self):
-        prices_dict = ystockquote.get_historical_prices(
-            self.symbol, '2013-01-02', '2013-01-15')
-        self.assertIsInstance(prices_dict, dict)
-        self.assertEqual(len(prices_dict), 10)
-        self.assertEqual(sorted(prices_dict.keys())[0], '2013-01-02')
-        self.assertEqual(sorted(prices_dict.keys())[-1], '2013-01-15')
-        self.assertGreater(float(prices_dict['2013-01-02']['Open']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-02']['High']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-02']['Low']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-02']['Close']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-02']['Volume']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-02']['Adj Close']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-15']['Open']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-15']['High']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-15']['Low']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-15']['Close']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-15']['Volume']), 0.0)
-        self.assertGreater(float(prices_dict['2013-01-15']['Adj Close']), 0.0)
+        symbol = 'GOOG'
+        start_date = '2013-01-02'
+        end_date = '2013-01-15'
+        prices = ystockquote.get_historical_prices(
+            symbol, start_date, end_date)
+        self.assertIsInstance(prices, dict)
+        self.assertEqual(len(prices), 10)
+        self.assertEqual(sorted(prices.keys())[0], '2013-01-02')
+        self.assertEqual(sorted(prices.keys())[-1], end_date)
+        self.assertGreater(float(prices[start_date]['Open']), 0.0)
+        self.assertGreater(float(prices[start_date]['High']), 0.0)
+        self.assertGreater(float(prices[start_date]['Low']), 0.0)
+        self.assertGreater(float(prices[start_date]['Close']), 0.0)
+        self.assertGreater(float(prices[start_date]['Volume']), 0.0)
+        self.assertGreater(float(prices[start_date]['Adj Close']), 0.0)
+        self.assertGreater(float(prices[end_date]['Open']), 0.0)
+        self.assertGreater(float(prices[end_date]['High']), 0.0)
+        self.assertGreater(float(prices[end_date]['Low']), 0.0)
+        self.assertGreater(float(prices[end_date]['Close']), 0.0)
+        self.assertGreater(float(prices[end_date]['Volume']), 0.0)
+        self.assertGreater(float(prices[end_date]['Adj Close']), 0.0)
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@
 #  License as published by the Free Software Foundation; either
 #  version 2.1 of the License, or (at your option) any later version.
 #
-#  Requires: Python 2.7/3.2+
+#  Requires: Python 2.7/3.3+
 
 
 __version__ = '0.2.5dev'
@@ -29,7 +29,8 @@ def _request(symbol, stat):
     url = 'http://finance.yahoo.com/d/quotes.csv?s=%s&f=%s' % (symbol, stat)
     req = Request(url)
     resp = urlopen(req)
-    return str(resp.read().decode('utf-8').strip())
+    content = resp.read().decode().strip()
+    return content
 
 
 def get_all(symbol):
