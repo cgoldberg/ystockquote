@@ -42,9 +42,9 @@ Example Usage
 .. code:: python
 
     >>> import ystockquote
-    >>> print(ystockquote.get_price_book('GOOG'))
+    >>> print(ystockquote.get_price_book('GOOGL'))
     '51.18'
-    >>> print(ystockquote.get_bid_realtime('GOOG'))
+    >>> print(ystockquote.get_bid_realtime('GOOGL'))
     '904.77'
     >>>
 
@@ -52,7 +52,7 @@ Example Usage
 
     >>> import ystockquote
     >>> from pprint import pprint
-    >>> pprint(ystockquote.get_historical_prices('GOOG', '2013-01-03', '2013-01-08'))
+    >>> pprint(ystockquote.get_historical_prices('GOOGL', '2013-01-03', '2013-01-08'))
     {'2013-01-03': {'Adj Close': '723.67',
                     'Close': '723.67',
                     'High': '731.93',
