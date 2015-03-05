@@ -480,7 +480,7 @@ def get_historical_prices(symbol, start_date, end_date):
         'g': 'd',
         'ignore': '.csv',
     })
-    url = 'http://ichart.yahoo.com/table.csv?%s' % params
+    url = 'http://real-chart.finance.yahoo.com/table.csv?%s' % params
     req = Request(url)
     resp = urlopen(req)
     content = str(resp.read().decode('utf-8').strip())
