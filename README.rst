@@ -3,6 +3,9 @@ ystockquote
 
 **Python module - fetch stock quote data from Yahoo Finance**
 
+.. image:: https://travis-ci.org/cgoldberg/xvfbwrapper.svg?branch=master
+    :target: https://travis-ci.org/cgoldberg/xvfbwrapper
+
  * Created by: Corey Goldberg (2007,2008,2013)
  * License: GNU LGPLv2+
  * `Dev Home <https://github.com/cgoldberg/ystockquote>`_
