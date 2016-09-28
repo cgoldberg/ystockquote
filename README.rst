@@ -1,7 +1,7 @@
 ystockquote
 ===========
 
-**Python module - retrieve stock quote data from Yahoo Finance**
+**Python module - fetch stock quote data from Yahoo Finance**
 
  * Created by: Corey Goldberg (2007,2008,2013)
  * License: GNU LGPLv2+
@@ -29,7 +29,6 @@ You can also clone the development repo (requires `git <http://git-scm.com/>`_) 
     $ git clone git://github.com/cgoldberg/ystockquote.git
     $ cd ystockquote
     $ python setup.py install
-    $ python -m unittest discover
 
 To run unit tests::
 
@@ -78,4 +77,3 @@ Example Usage
                     'Open': '735.54',
                     'Volume': '1676100'}}
     >>>
-
