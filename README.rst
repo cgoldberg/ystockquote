@@ -6,6 +6,8 @@ ystockquote
 .. image:: https://travis-ci.org/cgoldberg/ystockquote.svg?branch=master
     :target: https://travis-ci.org/cgoldberg/ystockquote
 
+----
+
  * Created by: Corey Goldberg (2007,2008,2013)
  * License: GNU LGPLv2+
  * `Dev Home <https://github.com/cgoldberg/ystockquote>`_
