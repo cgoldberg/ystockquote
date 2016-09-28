@@ -5,8 +5,8 @@ ystockquote
 
  * Created by: Corey Goldberg (2007,2008,2013)
  * License: GNU LGPLv2+
- * Dev Home: `https://github.com/cgoldberg/ystockquote <https://github.com/cgoldberg/ystockquote>`_
- * PyPI: `https://pypi.python.org/pypi/ystockquote <https://pypi.python.org/pypi/ystockquote>`_
+ * `Dev Home <https://github.com/cgoldberg/ystockquote>`_
+ * `PyPI <https://pypi.python.org/pypi/ystockquote>`_
 
 ----
 
@@ -14,7 +14,7 @@ ystockquote
 Requirements
 ~~~~~~~~~~~~
 
-  * Python 2.7/3.3+
+    Python 2.7 or Python 3.3+
 
 ~~~~~~~
 Install
@@ -24,7 +24,7 @@ Install
 
     $ pip install ystockquote
 
-You can also clone the development repo (requires `git <http://git-scm.com/>`_) to install::
+You can also clone the development repo to install (requires `git <http://git-scm.com/>`_)::
 
     $ git clone git://github.com/cgoldberg/ystockquote.git
     $ cd ystockquote
