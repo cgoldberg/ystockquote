@@ -1,7 +1,7 @@
 #
 #  ystockquote : Python module - retrieve stock quote data from Yahoo Finance
 #
-#  Copyright (c) 2007,2008,2013 Corey Goldberg (cgoldberg@gmail.com)
+#  Copyright (c) 2007,2008,2013,2016 Corey Goldberg (cgoldberg@gmail.com)
 #
 #  license: GNU LGPL
 #
@@ -13,8 +13,10 @@
 #  Requires: Python 2.7/3.3+
 
 
-__version__ = '0.2.5dev'
+__version__ = '0.2.5dev'  # NOQA
 
+
+import csv
 try:
     # py3
     from urllib.request import Request, urlopen
@@ -44,6 +46,7 @@ def get_all(symbol):
         '1g4mg5m2g6kvjj1j5j3k4f6j6nk5n4ws1xj2va5b6k3t7a2t615l2el3e7v1' \
         'e8v7e9s6b4j4p5p6rr2r5r6r7s7'
     values = _request(symbol, ids).split(',')
+    csv
     return dict(
         dividend_yield=values[0],
         dividend_per_share=values[1],

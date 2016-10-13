@@ -8,7 +8,7 @@ ystockquote
 
 ----
 
- * Created by: Corey Goldberg (2007,2008,2013)
+ * Created by: Corey Goldberg (2007,2008,2013, 2016)
  * License: GNU LGPLv2+
  * `Dev Home <https://github.com/cgoldberg/ystockquote>`_
  * `PyPI <https://pypi.python.org/pypi/ystockquote>`_
@@ -37,7 +37,7 @@ You can also clone the development repo to install (requires `git <http://git-sc
 
 To run unit tests::
 
-    $ python -m unittest discover
+    $ tox
 
 ~~~~~~~~~~~~~
 Example Usage

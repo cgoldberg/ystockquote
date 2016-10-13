@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-#  Copyright (c) 2013, Corey Goldberg (cgoldberg@gmail.com)
+#  Copyright (c) 2013,2016 Corey Goldberg (cgoldberg@gmail.com)
 #
 #  license: GNU LGPL
 #
@@ -14,23 +14,10 @@
 
 import unittest
 
-import pep8
-from testscenarios import generate_scenarios, TestWithScenarios
-
 import ystockquote
 
 
-class Pep8ConformanceTestCase(unittest.TestCase):
-    """Test that all code conforms to PEP8!"""
-
-    def test_pep8_conformance(self):
-        self.pep8style = pep8.StyleGuide(show_source=True)
-        files = ('ystockquote.py', 'test_ystockquote.py')
-        self.pep8style.check_files(files)
-        self.assertEqual(self.pep8style.options.report.total_errors, 0)
-
-
-class YStockQuoteTestCase(TestWithScenarios):
+class YStockQuoteTestCase(unittest.TestCase):
 
     def test_get_all(self):
         symbol = 'GOOG'
