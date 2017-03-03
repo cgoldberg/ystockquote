@@ -13,7 +13,7 @@
 #  Requires: Python 2.7/3.3+
 
 
-__version__ = '0.2.5dev'  # NOQA
+__version__ = '0.2.5'  # NOQA
 
 
 try:
